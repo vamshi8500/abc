@@ -1,0 +1,13 @@
+---
+- hosts: all
+  user: ec2-user
+  become: yes
+  vars:
+     a:
+       - git
+       - maven
+  tasks:
+     - name: package installation
+       yum:
+         name: "{{a}}"
+         state: present
